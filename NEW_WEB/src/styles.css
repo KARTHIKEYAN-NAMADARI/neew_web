@@ -975,28 +975,369 @@ input {
   margin: 0 0 20px;
 }
 
-/* Analytics Page */
-.analytics-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.score-section,
-.chart-section,
-.insights-section,
-.stats-summary {
+/* Enhanced FoodAI Styles */
+.image-preview {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
   padding: 24px;
+  text-align: center;
 }
 
-.score-section h3,
-.chart-section h3,
-.insights-section h3,
-.stats-summary h3 {
-  margin: 0 0 20px;
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.analysis-progress {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 24px;
+  text-align: center;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #44d7c8, #57a6ff);
+  border-radius: 999px;
+  animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.confidence-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(67, 105, 234, 0.2);
+  color: #96c8ff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.edit-btn, .save-btn, .cancel-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: rgba(255,255,255,0.08);
+  color: #c3d4e9;
+}
+
+.edit-btn:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #44d7c8, #57a6ff);
+  color: #07151f;
+}
+
+.save-btn:hover {
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background: rgba(255, 87, 87, 0.2);
+  color: #ff8787;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 87, 87, 0.3);
+}
+
+.food-result.editing {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.edit-form {
+  margin-top: 16px;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.edit-field label {
+  font-size: 0.9rem;
+  color: #c3d4e9;
+  font-weight: 500;
+}
+
+.edit-field input {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.edit-field input:focus {
+  border-color: #57a6ff;
+}
+
+.nutrition-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #9fb7d2;
+  margin-bottom: 4px;
+}
+
+.summary-value {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #44d7c8;
+}
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-nutrition {
+  text-align: right;
+}
+
+.meal-macros {
+  font-size: 0.8rem;
+  color: #9fb7d2;
+  margin-top: 2px;
+}
+
+.confidence-small {
+  font-size: 0.75rem;
+  color: #6b8299;
+  margin-left: 8px;
+}
+
+/* Enhanced Smartwatch Sync Styles */
+.sync-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sync-btn {
+  background: linear-gradient(135deg, #44d7c8, #57a6ff);
+  color: #07151f;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sync-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.sync-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #c3d4e9;
+}
+
+.sync-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #44d7c8;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.workout-data, .hydration-data {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.data-header h4 {
+  margin: 0;
+  color: #c3d4e9;
+}
+
+.data-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #44d7c8;
+  margin: 0;
+}
+
+.data-unit {
+  font-size: 0.9rem;
+  color: #9fb7d2;
+  font-weight: 400;
+}
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.data-item:last-child {
+  border-bottom: none;
+}
+
+.data-label {
+  color: #c3d4e9;
+}
+
+.data-amount {
+  font-weight: 600;
+  color: #44d7c8;
+}
+
+.auto-sync {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.auto-sync h4 {
+  margin: 0 0 8px;
+  color: #c3d4e9;
+}
+
+.auto-sync p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9fb7d2;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.2);
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #44d7c8;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
 }
 
 .score-circle {
