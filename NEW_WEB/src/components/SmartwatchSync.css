@@ -1,0 +1,38 @@
+.sync {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sync-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.sync-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.mock-data {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+
+.mock-data ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mock-data li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ecf0f1;
+}
